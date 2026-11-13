@@ -1,6 +1,9 @@
 .ds-calendar {
   --ds-calendar-cell: 40px;
   display: inline-block;
+  width: fit-content;
+  max-width: 100%;
+  box-sizing: border-box;
   padding: var(--ds-space-4);
   border: 1px solid var(--ds-color-border);
   border-radius: var(--ds-radius-lg);

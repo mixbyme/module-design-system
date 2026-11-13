@@ -4,6 +4,8 @@
  * :root 나 특정 영역에 다시 선언하면 브랜드에 맞게 바꿀 수 있습니다.
  */
 :root {
+  color-scheme: light;
+
   /* 브랜드 색 */
   --ds-color-primary: #2563eb;
   --ds-color-primary-hover: #1d4ed8;
@@ -71,6 +73,8 @@
 }
 
 [data-theme='dark'] {
+  color-scheme: dark;
+
   --ds-color-primary: #3b82f6;
   --ds-color-primary-hover: #60a5fa;
   --ds-color-primary-subtle: rgb(59 130 246 / 0.16);
