@@ -1,0 +1,71 @@
+.ds-theme-scope {
+  background: var(--ds-color-bg);
+  color: var(--ds-color-text);
+}
+
+.ds-theme-toggle {
+  --ds-theme-toggle-size: 32px;
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-sm);
+}
+.ds-theme-toggle--sm { --ds-theme-toggle-size: 28px; }
+.ds-theme-toggle svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ds-theme-toggle--segmented {
+  display: inline-flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-muted);
+}
+.ds-theme-toggle__option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ds-space-1);
+  min-width: var(--ds-theme-toggle-size);
+  height: var(--ds-theme-toggle-size);
+  padding: 0 var(--ds-space-2);
+  border: 0;
+  border-radius: var(--ds-radius-full);
+  background: none;
+  color: var(--ds-color-text-muted);
+  font: inherit;
+  font-weight: var(--ds-font-weight-medium);
+  cursor: pointer;
+  transition: background-color var(--ds-duration) var(--ds-easing), color var(--ds-duration) var(--ds-easing);
+}
+.ds-theme-toggle__option:hover { color: var(--ds-color-text); }
+.ds-theme-toggle__option:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); }
+.ds-theme-toggle__option--checked {
+  background: var(--ds-color-surface);
+  color: var(--ds-color-text);
+  box-shadow: var(--ds-shadow-sm);
+}
+
+.ds-theme-toggle--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(var(--ds-theme-toggle-size) + 4px);
+  height: calc(var(--ds-theme-toggle-size) + 4px);
+  padding: 0;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-text);
+  cursor: pointer;
+  transition: background-color var(--ds-duration) var(--ds-easing);
+}
+.ds-theme-toggle--icon:hover { background: var(--ds-color-surface-hover); }
+.ds-theme-toggle--icon:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); }

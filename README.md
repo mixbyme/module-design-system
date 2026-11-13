@@ -19,7 +19,7 @@
 ## 특징
 
 - **디자인 토큰 기반:** 모든 색·간격·모서리·글꼴이 `--ds-` CSS 변수입니다. 변수만 바꾸면 브랜드 테마가 적용됩니다.
-- **라이트 / 다크 테마:** `<html data-theme="dark">` 하나로 전환합니다.
+- **라이트 / 다크 / 시스템 테마:** `ThemeProvider`와 `ThemeToggle`로 테마를 고르고 기억합니다. 특정 영역에만 다른 테마를 적용할 수도 있습니다.
 - **접근성:** 키보드 조작, 포커스 링, ARIA 속성(`role`, `aria-selected`, `aria-sort` 등)을 기본으로 갖췄습니다.
 - **외부 의존성 없음:** React 외의 런타임 라이브러리를 쓰지 않습니다. 빌드 결과는 JS 약 18KB, CSS 약 15KB입니다.
 - **TypeScript:** 모든 props에 타입과 설명이 있어 에디터 자동완성으로 바로 쓸 수 있습니다.
@@ -136,6 +136,39 @@ const columns: TableColumn<Member>[] = [
 <Calendar mode="range" value={range} onChange={setRange} minDate={new Date()} />
 ```
 
+### 테마 선택 (ThemeProvider · ThemeToggle)
+
+<img src="docs/screenshots/theme.png" alt="라이트와 다크 테마를 나란히 적용한 모습" width="640" />
+
+라이트·다크·시스템 테마를 고르고, 앱 전체나 특정 영역에 적용합니다.
+
+- `ThemeProvider`: 테마 상태를 관리하고 `<html data-theme>`에 적용합니다.
+  - 선택한 값은 localStorage에 기억합니다(`storageKey`, 기본값 `ds-theme`).
+  - `system`이면 OS 설정이 바뀔 때 함께 바뀝니다.
+- `scoped`를 주면 `<html>` 대신 Provider 영역에만 적용됩니다. 한 화면에 라이트와 다크를 함께 보여줄 때 씁니다.
+- `ThemeToggle`: `variant="segmented"`(라이트·시스템·다크 선택, 화살표 키 이동) 또는 `variant="icon"`(라이트 ↔ 다크 버튼)
+- `useTheme()`: `theme`(선택 값), `resolvedTheme`(실제 적용된 값), `setTheme`, `toggleTheme`을 돌려줍니다.
+
+```tsx
+import { ThemeProvider, ThemeToggle, useTheme } from 'module-design-system';
+
+function App() {
+  return (
+    <ThemeProvider defaultTheme="system">
+      <header>
+        <ThemeToggle />
+      </header>
+      ...
+    </ThemeProvider>
+  );
+}
+
+function Logo() {
+  const { resolvedTheme } = useTheme();
+  return <img src={resolvedTheme === 'dark' ? '/logo-white.svg' : '/logo.svg'} alt="" />;
+}
+```
+
 ## 프로젝트에 붙여 쓰기
 
 ### 1. 설치
@@ -176,7 +209,7 @@ import { Button, Calendar, MessageBox } from 'module-design-system';
 }
 ```
 
-다크 테마는 `<html data-theme="dark">`로 켭니다. 특정 영역에만 다른 테마를 주려면 그 요소에 `data-theme` 속성이나 변수를 선언합니다.
+라이트·다크 전환은 `ThemeProvider`가 처리합니다. React 밖에서 직접 바꾸려면 `<html data-theme="dark">`처럼 속성만 바꿔도 됩니다. 특정 영역에만 다른 테마를 주려면 그 요소에 `data-theme="light"` 또는 `data-theme="dark"`를 붙입니다.
 
 ### 컴포넌트 커스터마이즈
 
@@ -211,6 +244,7 @@ src/
   tokens/tokens.css  디자인 토큰 (라이트/다크)
   components/        컴포넌트별 폴더 (tsx, css, stories, index)
   utils/cx.ts        클래스 이름 합치기 유틸
+  theme/             ThemeProvider, useTheme
   styles.css         전체 스타일 진입점
   index.ts           패키지 진입점
 vercel.json          Vercel 배포 설정 (Storybook 정적 빌드)
