@@ -1,0 +1,43 @@
+.ds-messagebox {
+  width: min(440px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-lg);
+  background: var(--ds-color-surface);
+  color: var(--ds-color-text);
+  box-shadow: var(--ds-shadow-lg);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-md);
+  line-height: var(--ds-line-height);
+}
+.ds-messagebox::backdrop { background: var(--ds-color-overlay); }
+.ds-messagebox[open] { animation: ds-messagebox-in 180ms var(--ds-easing); }
+@keyframes ds-messagebox-in { from { opacity: 0; transform: translateY(8px) scale(0.98); } }
+@media (prefers-reduced-motion: reduce) { .ds-messagebox[open] { animation: none; } }
+
+.ds-messagebox__panel { padding: var(--ds-space-6); }
+.ds-messagebox__header { display: flex; align-items: center; gap: var(--ds-space-3); }
+.ds-messagebox__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: var(--ds-radius-full);
+}
+.ds-messagebox__icon svg { width: 22px; height: 22px; }
+.ds-messagebox__title { margin: 0; font-size: var(--ds-font-size-xl); font-weight: var(--ds-font-weight-bold); }
+.ds-messagebox__body { margin-top: var(--ds-space-3); padding-left: 52px; color: var(--ds-color-text-muted); }
+.ds-messagebox__footer { display: flex; justify-content: flex-end; gap: var(--ds-space-2); margin-top: var(--ds-space-6); }
+
+.ds-messagebox--info .ds-messagebox__icon { background: var(--ds-color-info-subtle); color: var(--ds-color-info); }
+.ds-messagebox--success .ds-messagebox__icon { background: var(--ds-color-success-subtle); color: var(--ds-color-success); }
+.ds-messagebox--warning .ds-messagebox__icon { background: var(--ds-color-warning-subtle); color: var(--ds-color-warning); }
+.ds-messagebox--danger .ds-messagebox__icon { background: var(--ds-color-danger-subtle); color: var(--ds-color-danger); }
+
+@media (max-width: 480px) {
+  .ds-messagebox__body { padding-left: 0; }
+  .ds-messagebox__footer > * { flex: 1; }
+}

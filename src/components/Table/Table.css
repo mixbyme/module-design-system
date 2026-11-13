@@ -1,0 +1,53 @@
+.ds-table {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--ds-color-border);
+  border-radius: var(--ds-radius-md);
+  background: var(--ds-color-surface);
+  font-family: var(--ds-font-family);
+  font-size: var(--ds-font-size-md);
+  color: var(--ds-color-text);
+}
+.ds-table__table { width: 100%; border-collapse: collapse; }
+.ds-table th,
+.ds-table td { padding: var(--ds-space-3) var(--ds-space-4); text-align: left; border-bottom: 1px solid var(--ds-color-border); }
+.ds-table--sm th,
+.ds-table--sm td { padding: var(--ds-space-2) var(--ds-space-3); font-size: var(--ds-font-size-sm); }
+.ds-table tbody tr:last-child td { border-bottom: none; }
+
+.ds-table th {
+  background: var(--ds-color-surface-muted);
+  color: var(--ds-color-text-muted);
+  font-size: var(--ds-font-size-sm);
+  font-weight: var(--ds-font-weight-bold);
+  white-space: nowrap;
+}
+.ds-table tbody tr { transition: background-color var(--ds-duration) var(--ds-easing); }
+.ds-table tbody tr:hover { background: var(--ds-color-surface-hover); }
+.ds-table--striped tbody tr:nth-child(even) { background: var(--ds-color-surface-muted); }
+.ds-table__row--selected,
+.ds-table--striped tbody tr.ds-table__row--selected { background: var(--ds-color-primary-subtle); }
+.ds-table__row--clickable { cursor: pointer; }
+
+.ds-table__select { width: 44px; }
+.ds-table__select .ds-checkbox__control { margin-top: 0; vertical-align: middle; }
+
+.ds-table__sort {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-1);
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.ds-table__sort:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); border-radius: var(--ds-radius-sm); }
+.ds-table__sort--active { color: var(--ds-color-text); }
+.ds-table__sort-icon { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ds-table__sort-icon path { opacity: 0.35; }
+.ds-table__sort-icon--asc path:first-child,
+.ds-table__sort-icon--desc path:last-child { opacity: 1; color: var(--ds-color-primary); }
+
+.ds-table__empty { padding: var(--ds-space-6) !important; text-align: center !important; color: var(--ds-color-text-muted); }

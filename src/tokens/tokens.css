@@ -1,0 +1,101 @@
+/*
+ * 디자인 토큰
+ * 모든 컴포넌트는 이 변수만 참조합니다. 사용하는 프로젝트에서 같은 이름의 변수를
+ * :root 나 특정 영역에 다시 선언하면 브랜드에 맞게 바꿀 수 있습니다.
+ */
+:root {
+  /* 브랜드 색 */
+  --ds-color-primary: #2563eb;
+  --ds-color-primary-hover: #1d4ed8;
+  --ds-color-primary-subtle: #eff6ff;
+  --ds-color-on-primary: #ffffff;
+
+  /* 상태 색 */
+  --ds-color-info: #2563eb;
+  --ds-color-info-subtle: #eff6ff;
+  --ds-color-success: #16a34a;
+  --ds-color-success-subtle: #f0fdf4;
+  --ds-color-warning: #d97706;
+  --ds-color-warning-subtle: #fffbeb;
+  --ds-color-danger: #dc2626;
+  --ds-color-danger-hover: #b91c1c;
+  --ds-color-danger-subtle: #fef2f2;
+
+  /* 중립 색 */
+  --ds-color-bg: #ffffff;
+  --ds-color-surface: #ffffff;
+  --ds-color-surface-muted: #f8fafc;
+  --ds-color-surface-hover: #f1f5f9;
+  --ds-color-border: #e2e8f0;
+  --ds-color-border-strong: #cbd5e1;
+  --ds-color-text: #0f172a;
+  --ds-color-text-muted: #64748b;
+  --ds-color-text-disabled: #94a3b8;
+  --ds-color-overlay: rgb(15 23 42 / 0.45);
+  --ds-color-focus: #93c5fd;
+
+  /* 글꼴 */
+  --ds-font-family: Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Segoe UI', sans-serif;
+  --ds-font-size-sm: 13px;
+  --ds-font-size-md: 14px;
+  --ds-font-size-lg: 16px;
+  --ds-font-size-xl: 18px;
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-bold: 600;
+  --ds-line-height: 1.5;
+
+  /* 간격 (4px 단위) */
+  --ds-space-1: 4px;
+  --ds-space-2: 8px;
+  --ds-space-3: 12px;
+  --ds-space-4: 16px;
+  --ds-space-5: 20px;
+  --ds-space-6: 24px;
+
+  /* 모서리, 그림자, 움직임 */
+  --ds-radius-sm: 4px;
+  --ds-radius-md: 8px;
+  --ds-radius-lg: 12px;
+  --ds-radius-full: 9999px;
+  --ds-shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+  --ds-shadow-lg: 0 20px 40px rgb(15 23 42 / 0.18);
+  --ds-focus-ring: 0 0 0 3px var(--ds-color-focus);
+  --ds-duration: 150ms;
+  --ds-easing: cubic-bezier(0.2, 0, 0, 1);
+
+  /* 컴포넌트 크기 */
+  --ds-control-height-sm: 32px;
+  --ds-control-height-md: 40px;
+  --ds-control-height-lg: 48px;
+}
+
+[data-theme='dark'] {
+  --ds-color-primary: #3b82f6;
+  --ds-color-primary-hover: #60a5fa;
+  --ds-color-primary-subtle: rgb(59 130 246 / 0.16);
+  --ds-color-on-primary: #ffffff;
+
+  --ds-color-info: #60a5fa;
+  --ds-color-info-subtle: rgb(96 165 250 / 0.14);
+  --ds-color-success: #4ade80;
+  --ds-color-success-subtle: rgb(74 222 128 / 0.12);
+  --ds-color-warning: #fbbf24;
+  --ds-color-warning-subtle: rgb(251 191 36 / 0.12);
+  --ds-color-danger: #f87171;
+  --ds-color-danger-hover: #fca5a5;
+  --ds-color-danger-subtle: rgb(248 113 113 / 0.12);
+
+  --ds-color-bg: #0b1120;
+  --ds-color-surface: #111827;
+  --ds-color-surface-muted: #1e293b;
+  --ds-color-surface-hover: #1e293b;
+  --ds-color-border: #1f2a3c;
+  --ds-color-border-strong: #334155;
+  --ds-color-text: #e2e8f0;
+  --ds-color-text-muted: #94a3b8;
+  --ds-color-text-disabled: #475569;
+  --ds-color-overlay: rgb(0 0 0 / 0.6);
+  --ds-color-focus: #1e40af;
+  --ds-shadow-lg: 0 20px 40px rgb(0 0 0 / 0.5);
+}

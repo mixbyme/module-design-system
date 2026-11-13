@@ -1,0 +1,43 @@
+.ds-tabs { font-family: var(--ds-font-family); font-size: var(--ds-font-size-md); color: var(--ds-color-text); }
+.ds-tabs__list { display: flex; gap: var(--ds-space-1); overflow-x: auto; scrollbar-width: none; }
+.ds-tabs__tab {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--ds-space-2);
+  padding: var(--ds-space-2) var(--ds-space-4);
+  border: 0;
+  background: none;
+  color: var(--ds-color-text-muted);
+  font: inherit;
+  font-weight: var(--ds-font-weight-medium);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--ds-duration) var(--ds-easing), background-color var(--ds-duration) var(--ds-easing),
+    border-color var(--ds-duration) var(--ds-easing);
+}
+.ds-tabs__tab:hover:not(:disabled) { color: var(--ds-color-text); }
+.ds-tabs__tab:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); }
+.ds-tabs__tab:disabled { color: var(--ds-color-text-disabled); cursor: not-allowed; }
+.ds-tabs__badge {
+  min-width: 20px;
+  padding: 0 6px;
+  border-radius: var(--ds-radius-full);
+  background: var(--ds-color-surface-hover);
+  color: var(--ds-color-text-muted);
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+}
+.ds-tabs__panel { padding-top: var(--ds-space-4); }
+.ds-tabs__panel:focus-visible { outline: none; box-shadow: var(--ds-focus-ring); border-radius: var(--ds-radius-sm); }
+
+/* line */
+.ds-tabs--line .ds-tabs__list { border-bottom: 1px solid var(--ds-color-border); gap: 0; }
+.ds-tabs--line .ds-tabs__tab { margin-bottom: -1px; padding: var(--ds-space-3) var(--ds-space-4); border-bottom: 2px solid transparent; }
+.ds-tabs--line .ds-tabs__tab--selected { color: var(--ds-color-primary); border-bottom-color: var(--ds-color-primary); }
+.ds-tabs--line .ds-tabs__tab--selected .ds-tabs__badge { background: var(--ds-color-primary-subtle); color: var(--ds-color-primary); }
+
+/* pill */
+.ds-tabs--pill .ds-tabs__list { display: inline-flex; padding: var(--ds-space-1); border-radius: var(--ds-radius-md); background: var(--ds-color-surface-muted); }
+.ds-tabs--pill .ds-tabs__tab { border-radius: var(--ds-radius-sm); }
+.ds-tabs--pill .ds-tabs__tab--selected { background: var(--ds-color-surface); color: var(--ds-color-text); box-shadow: var(--ds-shadow-sm); }
