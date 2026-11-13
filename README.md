@@ -6,7 +6,7 @@
 
 디자인 토큰 하나로 브랜드와 다크 테마를 바꾸고, Storybook에서 모든 컴포넌트를 바로 확인합니다.
 
-### 🔗 Storybook: __STORYBOOK_URL__
+### 🔗 Storybook: [module-design-system.vercel.app](https://module-design-system.vercel.app)
 
 ![React](https://img.shields.io/badge/React_19-20232A?logo=react&logoColor=61DAFB)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
